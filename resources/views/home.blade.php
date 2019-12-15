@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="card mt-2">
-                    <div class="card-header ch-card-header">Current Collectible</div>
+                    <div class="card-header ch-card-header">Current Collectable</div>
                     <div class="card-body ch-card-body">
                         <div class="d-flex mb-2">
                             <div class="rare-image">
