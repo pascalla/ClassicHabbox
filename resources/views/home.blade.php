@@ -62,11 +62,17 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-start flex-wrap rare-body">
                             @foreach($rares as $rare)
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="({{ $rare->price()->credits/50 }} Goldbars / {{ $rare->price()->credits }} Credits)">
-                                    <div class="rare-icon">
-                                        <img src="{{ $rare->small_image }}" alt="{{ $rare->name }}"/>
-                                    </div>
-                                </a>
+                                <div id="{{ $rare->name }}">
+                                    <a href="#">
+                                        <div class="rare-icon">
+                                            <img src="{{ $rare->small_image }}" alt="{{ $rare->name }}"/>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <b-popover target="{{ $rare->name }}" triggers="hover" placement="top">
+                                    ({{ $rare->price()->credits/50 }} Goldbars / {{ $rare->price()->credits }} Credits)
+                                </b-popover>
                             @endforeach
                         </div>
                     </div>
