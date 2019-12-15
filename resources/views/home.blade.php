@@ -39,6 +39,22 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="card mt-2">
+                    <div class="card-header ch-card-header">Current Collectible</div>
+                    <div class="card-body ch-card-body">
+                        <div class="d-flex mb-2">
+                            <div class="rare-image">
+                                <img src="{{ $collectablerelease->rare()->small_image }}" alt="{{ $collectablerelease->rare()->name }}"/>
+                            </div>
+                            <div class="rare-details flex-grow-1">
+                                <span class="detail"><b>{{ $collectablerelease->rare()->name }}</b></span>
+                                <span class="detail">({{ $collectablerelease->rare()->releasePrice()->credits}} C & {{$collectablerelease->rare()->releasePrice()->pixels}} Pixels)</span>
+                                <span class="detail">Releases: {{$collectablerelease->created_at}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-9">
                 <div class="card">

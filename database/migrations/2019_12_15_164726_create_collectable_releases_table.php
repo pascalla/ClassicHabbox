@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRareReleasesTable extends Migration
+class CreateCollectableReleasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRareReleasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('rare_releases', function (Blueprint $table) {
+        Schema::create('collectable_releases', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('rare_id');
             $table->boolean('active');
@@ -28,6 +28,6 @@ class CreateRareReleasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rare_releases');
+        Schema::dropIfExists('collectable_release');
     }
 }

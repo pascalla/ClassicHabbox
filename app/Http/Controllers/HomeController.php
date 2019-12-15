@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CollectableRelease;
 use App\RareRelease;
 use Illuminate\Http\Request;
 use App\Rare;
@@ -19,6 +20,7 @@ class HomeController extends Controller
         $rares = Rare::all();
         $recents = Price::latest()->take(3)->get();
         $release = RareRelease::where('active', true)->latest()->first();
-        return view('home')->with('rares', $rares)->with('recents', $recents)->with('release', $release);
+        $collectablerelease = CollectableRelease::where('active', true)->latest()->first();
+        return view('home')->with('rares', $rares)->with('recents', $recents)->with('release', $release)->with('collectablerelease', $collectablerelease);
     }
 }

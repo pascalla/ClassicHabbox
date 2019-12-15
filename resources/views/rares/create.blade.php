@@ -62,6 +62,11 @@
                                 <label for="rare_release" class="form-check-label">Catalogue Released Rare</label>
                             </div>
 
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="collectable_release" name="collectable_release" value="1">
+                                <label for="collectable_release" class="form-check-label">Catalogue Released Collectable</label>
+                            </div>
+
                             <button class="btn btn-primary">Save</button>
                         </form>
                     </div>

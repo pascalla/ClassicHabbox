@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\CollectableRelease;
 use Auth;
 use App\Rare;
 use App\RareRelease;
@@ -89,6 +90,19 @@ class RaresController extends Controller
             $rareRelease->rare_id = $rare->id;
             $rareRelease->active = true;
             $rareRelease->save();
+        }
+
+        if($request->has('collectable_release')) {
+            $collectableReleases = CollectableRelease::all();
+            foreach($collectableReleases as $release){
+                $release->active = 0;
+                $release->save();
+            }
+
+            $collectableRelease = new CollectableRelease;
+            $collectableRelease->rare_id = $rare->id;
+            $collectableRelease->active = true;
+            $collectableRelease->save();
         }
 
         return redirect()->route('rares.show', $rare->id);
