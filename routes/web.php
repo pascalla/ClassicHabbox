@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::get('/staff', 'RaresController@index');
 Route::resource('staff/rares', 'RaresController');
 Route::resource('staff/prices', 'PricesController');
