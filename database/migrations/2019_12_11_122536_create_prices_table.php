@@ -20,6 +20,7 @@ class CreatePricesTable extends Migration
             $table->integer('credits');
             $table->integer('pixels');
             $table->integer('direction');
+            $table->boolean('release');
             $table->timestamps();
         });
     }

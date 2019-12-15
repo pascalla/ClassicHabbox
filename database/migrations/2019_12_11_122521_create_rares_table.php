@@ -19,6 +19,8 @@ class CreateRaresTable extends Migration
             $table->text('name');
             $table->text('mission');
             $table->text('image');
+            $table->text('small_image');
+            $table->string('slug');
             $table->timestamps();
         });
     }

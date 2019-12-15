@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+
+Auth::routes();
+Route::get('/staff', 'RaresController@index');
+Route::resource('staff/rares', 'RaresController');
+Route::resource('staff/prices', 'PricesController');
+Route::resource('staff/categories', 'CategoriesController');
