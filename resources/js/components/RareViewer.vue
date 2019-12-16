@@ -3,10 +3,10 @@
         <div class="d-flex justify-content-start flex-wrap mb-3" v-if="rare">
             <div class="rare-body flex-grow-1 mr-2">
                 <p>Name: {{rare.name}}</p>
-                <p>Mission: {{ rare.mission }}</p>
-                <div v-if="rare.release">
-                    <p>Release Date: {{ rare.release.created_at }}</p>
-                    <p>Release Price: {{ rare.release_price.credits }} C & {{ rare.release_price.pixels}} Pixels</p>
+                <p>Description: {{ rare.mission }}</p>
+                <div v-if="rare.release || rare.collectable_release">
+                    <p>Release Date: {{ (rare.release) ? rare.release.created_at : rare.collectable_release.created_at }}</p>
+                    <p>Release Price: {{ (rare.release) ? rare.release_price.credits : rare.collectable_release.credits }} Credits & {{ (rare.release) ? rare.release.pixels : rare.collectable_release.pixels }} Pixels</p>
                 </div>
                 <p>Category: {{ rare.category.name }}</p>
             </div>

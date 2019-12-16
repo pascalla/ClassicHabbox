@@ -66682,22 +66682,35 @@ var render = function() {
             _c("div", { staticClass: "rare-body flex-grow-1 mr-2" }, [
               _c("p", [_vm._v("Name: " + _vm._s(_vm.rare.name))]),
               _vm._v(" "),
-              _c("p", [_vm._v("Mission: " + _vm._s(_vm.rare.mission))]),
+              _c("p", [_vm._v("Description: " + _vm._s(_vm.rare.mission))]),
               _vm._v(" "),
-              _vm.rare.release
+              _vm.rare.release || _vm.rare.collectable_release
                 ? _c("div", [
                     _c("p", [
                       _vm._v(
-                        "Release Date: " + _vm._s(_vm.rare.release.created_at)
+                        "Release Date: " +
+                          _vm._s(
+                            _vm.rare.release
+                              ? _vm.rare.release.created_at
+                              : _vm.rare.collectable_release.created_at
+                          )
                       )
                     ]),
                     _vm._v(" "),
                     _c("p", [
                       _vm._v(
                         "Release Price: " +
-                          _vm._s(_vm.rare.release_price.credits) +
-                          " C & " +
-                          _vm._s(_vm.rare.release_price.pixels) +
+                          _vm._s(
+                            _vm.rare.release
+                              ? _vm.rare.release_price.credits
+                              : _vm.rare.collectable_release.credits
+                          ) +
+                          " Credits & " +
+                          _vm._s(
+                            _vm.rare.release
+                              ? _vm.rare.release.pixels
+                              : _vm.rare.collectable_release.pixels
+                          ) +
                           " Pixels"
                       )
                     ])
@@ -79180,8 +79193,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/joshua.blackman/h/classichabbox/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/joshua.blackman/h/classichabbox/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/elijah/Documents/Club Habbo/site/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/elijah/Documents/Club Habbo/site/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

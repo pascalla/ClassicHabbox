@@ -8,7 +8,7 @@ use App\Rare;
 class RaresService extends Controller
 {
     public function index() {
-        $rares = Rare::with('currentPrice','category','priceHistory','releasePrice', 'release')->get();
+        $rares = Rare::with('currentPrice','category','priceHistory','releasePrice','release','collectableRelease')->get();
         return response()->json($rares);
     }
 }

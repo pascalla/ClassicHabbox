@@ -36,6 +36,10 @@ class Rare extends Model
         return $this->hasOne('App\RareRelease', 'rare_id');
     }
 
+    public function collectableRelease(){
+        return $this->hasOne('App\CollectableRelease', 'rare_id');
+    }
+
     /**
      * Get the options for generating the slug.
      */
