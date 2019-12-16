@@ -13,7 +13,7 @@ class Price extends Model
     }
 
     public function rare(){
-        return $this->belongsTo('App\Rare', 'rare_id')->first();
+        return $this->belongsTo('App\Rare', 'rare_id');
     }
 
     public function status(){

@@ -1862,6 +1862,78 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RareViewer.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RareViewer.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      rare: null,
+      rares: []
+    };
+  },
+  created: function created() {
+    this.getAllRares();
+  },
+  methods: {
+    getAllRares: function getAllRares() {
+      var _this = this;
+
+      axios.get('/api/rares').then(function (resp) {
+        _this.rares = resp.data;
+      });
+    },
+    setRare: function setRare(rare) {
+      console.log(rare);
+      this.rare = rare;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap-vue/esm/bv-config.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/bv-config.js ***!
@@ -66586,6 +66658,124 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RareViewer.vue?vue&type=template&id=5c7a6802&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RareViewer.vue?vue&type=template&id=5c7a6802& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.rare
+      ? _c(
+          "div",
+          { staticClass: "d-flex justify-content-start flex-wrap mb-3" },
+          [
+            _c("div", { staticClass: "rare-body flex-grow-1 mr-2" }, [
+              _c("p", [_vm._v("Name: " + _vm._s(_vm.rare.name))]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Mission: " + _vm._s(_vm.rare.mission))]),
+              _vm._v(" "),
+              _vm.rare.release
+                ? _c("div", [
+                    _c("p", [
+                      _vm._v(
+                        "Release Date: " + _vm._s(_vm.rare.release.created_at)
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "Release Price: " +
+                          _vm._s(_vm.rare.release_price.credits) +
+                          " C & " +
+                          _vm._s(_vm.rare.release_price.pixels) +
+                          " Pixels"
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("p", [_vm._v("Category: " + _vm._s(_vm.rare.category.name))])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "rare-body ml-auto p-5" }, [
+              _c("img", { attrs: { src: _vm.rare.image, alt: _vm.rare.name } })
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "d-flex justify-content-start flex-wrap rare-body" },
+      _vm._l(_vm.rares, function(rare) {
+        return _c(
+          "div",
+          [
+            _c("div", { attrs: { id: rare.name } }, [
+              _c(
+                "a",
+                {
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      return _vm.setRare(rare)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "rare-icon" }, [
+                    _c("img", {
+                      attrs: { src: rare.small_image, alt: rare.name }
+                    })
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "b-popover",
+              {
+                attrs: {
+                  target: rare.name,
+                  triggers: "hover",
+                  placement: "top"
+                }
+              },
+              [
+                _vm._v(
+                  "\n                (" +
+                    _vm._s(rare.current_price.credits) +
+                    " C / " +
+                    _vm._s(rare.current_price.credits) +
+                    " Goldbars)\n            "
+                )
+              ]
+            )
+          ],
+          1
+        )
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -78775,7 +78965,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["default"]); // Telling Vue to use this in whole application
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('rare-viewer', __webpack_require__(/*! ./components/RareViewer.vue */ "./resources/js/components/RareViewer.vue")["default"]);
+Vue.component('example', __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue"));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -78902,6 +79093,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/RareViewer.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/RareViewer.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RareViewer_vue_vue_type_template_id_5c7a6802___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RareViewer.vue?vue&type=template&id=5c7a6802& */ "./resources/js/components/RareViewer.vue?vue&type=template&id=5c7a6802&");
+/* harmony import */ var _RareViewer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RareViewer.vue?vue&type=script&lang=js& */ "./resources/js/components/RareViewer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RareViewer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RareViewer_vue_vue_type_template_id_5c7a6802___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RareViewer_vue_vue_type_template_id_5c7a6802___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/RareViewer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/RareViewer.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/RareViewer.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RareViewer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./RareViewer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RareViewer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RareViewer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/RareViewer.vue?vue&type=template&id=5c7a6802&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/RareViewer.vue?vue&type=template&id=5c7a6802& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RareViewer_vue_vue_type_template_id_5c7a6802___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./RareViewer.vue?vue&type=template&id=5c7a6802& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RareViewer.vue?vue&type=template&id=5c7a6802&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RareViewer_vue_vue_type_template_id_5c7a6802___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RareViewer_vue_vue_type_template_id_5c7a6802___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -78920,8 +79180,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! Y:\Files\Documents\Github\Alice\ClassicHabbox\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! Y:\Files\Documents\Github\Alice\ClassicHabbox\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/joshua.blackman/h/classichabbox/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/joshua.blackman/h/classichabbox/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

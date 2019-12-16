@@ -39,12 +39,12 @@
 
                             <div class="form-group">
                                 <label for="Name">Release Credits</label>
-                                <input type="text" class="form-control" id="credits" name="credits" value="{{ $rare->releasePrice()->credits }}">
+                                <input type="text" class="form-control" id="credits" name="credits" value="{{ $rare->releasePrice->credits }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="Name">Release Pixels</label>
-                                <input type="text" class="form-control" id="pixels" name="pixels" value="{{ $rare->releasePrice()->pixels }}">
+                                <input type="text" class="form-control" id="pixels" name="pixels" value="{{ $rare->releasePrice->pixels }}">
                             </div>
 
                             <div class="form-group">

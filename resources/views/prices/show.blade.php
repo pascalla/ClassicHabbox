@@ -17,7 +17,7 @@
                         <p>Mission: {{$rare->mission}}</p>
                         <img src="{{ $rare->image }}">
                         <img src="{{ $rare->small_image }}">
-                        <p>{{ $rare->price()->credits }}c / {{ $rare->price()->credits/50 }} Goldbars</p>
+                        <p>{{ $rare->price()->credits }}c / {{ $rare->price()->credits }} Goldbars</p>
 
                         <form action="/staff/prices" method="POST">
                             @csrf

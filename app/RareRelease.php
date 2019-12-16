@@ -9,6 +9,6 @@ class RareRelease extends Model
     protected $table = 'rare_releases';
 
     public function rare(){
-        return $this->belongsTo('App\Rare', 'rare_id')->first();
+        return $this->belongsTo('App\Rare', 'rare_id');
     }
 }
