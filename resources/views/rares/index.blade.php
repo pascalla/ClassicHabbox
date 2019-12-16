@@ -24,7 +24,7 @@
                 <tr>
                     <td><img src="{{ $rare->small_image }}"/></td>
                     <td>{{ $rare->name }}</td>
-                    <td>{{ $rare->price()->credits }}c</td>
+                    <td>{{ $rare->currentPrice->credits }}c</td>
                     <td>
                         <a href="/staff/prices/{{ $rare->id }}"><button class="btn btn-warning">Update Price</button></a>
                         <a href="/staff/rares/{{ $rare->id }}/edit"><button class="btn btn-primary">Edit</button></a>

@@ -17,7 +17,7 @@
                         <img src="{{ $rare->image }}">
                         <img src="{{ $rare->small_image }}">
                         <p>Mission: {{$rare->mission}}</p>
-                        <p>Category: {{$rare->category()->name }}</p>
+                        <p>Category: {{$rare->category->name }}</p>
                         <p>Release Credits: {{ $rare->price()->credits }}</p>
                         <p>Release Pixels: {{ $rare->price()->pixels }}</p>
                     </div>

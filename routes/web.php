@@ -11,9 +11,15 @@
 |
 */
 
+// Pages
 Route::get('/', 'HomeController@index')->name('home');
 
+// API (services)
+Route::get('/api/rares', 'RaresService@index');
+
+// Panel
 Auth::routes(['register' => false]);
+//Auth::routes();
 Route::get('/staff', 'RaresController@index');
 Route::resource('staff/rares', 'RaresController');
 Route::resource('staff/prices', 'PricesController');

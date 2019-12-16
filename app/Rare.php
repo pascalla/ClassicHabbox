@@ -13,19 +13,31 @@ class Rare extends Model
     protected $table = 'rares';
 
     public function category(){
-        return $this->belongsTo('App\Category', 'category_id')->first();
+        return $this->belongsTo('App\Category', 'category_id');
     }
 
     public function price(){
-        return $this->hasMany('App\Price', 'rare_id')->latest()->first();
+        return $this->hasOne('App\Price', 'rare_id')->latest()->first();
+    }
+
+    public function currentPrice(){
+        return $this->hasOne('App\Price', 'rare_id')->latest();
     }
 
     public function releasePrice(){
-        return $this->hasMany('App\Price', 'rare_id')->first();
+        return $this->hasOne('App\Price', 'rare_id');
     }
 
     public function priceHistory(){
         return $this->hasMany('App\Price', 'rare_id')->latest();
+    }
+
+    public function release(){
+        return $this->hasOne('App\RareRelease', 'rare_id');
+    }
+
+    public function collectableRelease(){
+        return $this->hasOne('App\CollectableRelease', 'rare_id');
     }
 
     /**
