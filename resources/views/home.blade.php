@@ -24,6 +24,8 @@
                         @endforeach
                     </div>
                 </div>
+
+                @if ($release)
                 <div class="card mt-2">
                     <div class="card-header ch-card-header">Current Rare</div>
                     <div class="card-body ch-card-body">
@@ -32,14 +34,15 @@
                                 <img src="{{ $release->rare->small_image }}" alt="{{ $release->rare->name }}"/>
                             </div>
                             <div class="rare-details flex-grow-1">
-                                <span class="detail"><b>{{ $release->rare->name }}</b></span>
-                                <span class="detail">({{ $release->rare->releasePrice->credits}} C & {{$release->rare->releasePrice->pixels}} Pixels)</span>
+                                <span class="detail"><b>{{ $release->rare()->name }}</b></span>
+                                <span class="detail">({{ $release->rare()->releasePrice()->credits}} Credits & {{$release->rare()->releasePrice()->pixels}} Pixels)</span>
                                 <span class="detail">Released: {{$release->created_at}}</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                @endif
+                @if ($collectablerelease)
                 <div class="card mt-2">
                     <div class="card-header ch-card-header">Current Collectable</div>
                     <div class="card-body ch-card-body">
@@ -48,13 +51,14 @@
                                 <img src="{{ $collectablerelease->rare->small_image }}" alt="{{ $collectablerelease->rare->name }}"/>
                             </div>
                             <div class="rare-details flex-grow-1">
-                                <span class="detail"><b>{{ $collectablerelease->rare->name }}</b></span>
-                                <span class="detail">({{ $collectablerelease->rare->releasePrice->credits}} C & {{$collectablerelease->rare->releasePrice->pixels}} Pixels)</span>
+                                <span class="detail"><b>{{ $collectablerelease->rare()->name }}</b></span>
+                                <span class="detail">({{ $collectablerelease->rare()->releasePrice()->credits}} Credits & {{$collectablerelease->rare()->releasePrice()->pixels}} Pixels)</span>
                                 <span class="detail">Released: {{$collectablerelease->created_at}}</span>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
             <div class="col-xl-9">
                 <div class="card">

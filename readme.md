@@ -1,2 +1,2 @@
-# ClassicHabbox
- ClassicHabbox CMS
+# ClubHabbo
+ ClubHabbo CMS

@@ -10,10 +10,7 @@
 
         <div class="mb-2">
             <a href="/staff/rares/create"><button class="btn btn-primary">Add Rare</button></a>
-        </div>
-
-        <div class="mb-2">
-            <a href="/staff/categories/create"><button class="btn btn-primary">Add Category</button></a>
+            <a href="/staff/categories/create" class="float-right"><button class="btn btn-primary">Add Category</button></a>
         </div>
 
         <table class="table">

@@ -1,8 +1,8 @@
 body {
-    background-image: url('/img/b_bg.png'), url('/img/bg.png');
-    background-repeat: repeat-x,repeat;
-    background-position: left bottom,left top;
-    background-attachment: fixed,fixed;
+    background-image: url('/img/xmas_left.png'), url('/img/xmas_right.png'), url('/img/xmas_bg.gif');
+    background-repeat: no-repeat,no-repeat,repeat;
+    background-position: left bottom,right bottom, left top;
+    background-attachment: fixed,fixed, fixed;
     font-family: Arial;
     font-size: 12px;
     overflow-y: scroll;
@@ -20,7 +20,8 @@ body {
 }
 
 .logo{
-    padding-left:20px;
+    margin: 0 auto;
+    display: block;
 }
 
 .navigation-container{
