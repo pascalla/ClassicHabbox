@@ -20,7 +20,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 Vue.use(BootstrapVue); // Telling Vue to use this in whole application
-Vue.component('rare-viewer', require('./components/RareViewer.vue').default);
+Vue.component('rare-viewer', require('./components/RareViewer'));
 
 
 Vue.component('example', require('./components/ExampleComponent'))
