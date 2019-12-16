@@ -35,7 +35,7 @@
                             </div>
                             <div class="rare-details flex-grow-1">
                                 <span class="detail"><b>{{ $release->rare()->name }}</b></span>
-                                <span class="detail">({{ $release->rare()->releasePrice()->credits}} C & {{$release->rare()->releasePrice()->pixels}} Pixels)</span>
+                                <span class="detail">({{ $release->rare()->releasePrice()->credits}} Credits & {{$release->rare()->releasePrice()->pixels}} Pixels)</span>
                                 <span class="detail">Releases: {{$release->created_at}}</span>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="rare-details flex-grow-1">
                                 <span class="detail"><b>{{ $collectablerelease->rare()->name }}</b></span>
-                                <span class="detail">({{ $collectablerelease->rare()->releasePrice()->credits}} C & {{$collectablerelease->rare()->releasePrice()->pixels}} Pixels)</span>
+                                <span class="detail">({{ $collectablerelease->rare()->releasePrice()->credits}} Credits & {{$collectablerelease->rare()->releasePrice()->pixels}} Pixels)</span>
                                 <span class="detail">Releases: {{$collectablerelease->created_at}}</span>
                             </div>
                         </div>
