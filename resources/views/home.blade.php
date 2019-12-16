@@ -24,6 +24,8 @@
                         @endforeach
                     </div>
                 </div>
+
+                @if ($release)
                 <div class="card mt-2">
                     <div class="card-header ch-card-header">Current Rare</div>
                     <div class="card-body ch-card-body">
@@ -39,7 +41,8 @@
                         </div>
                     </div>
                 </div>
-
+                @endif
+                @if ($collectablerelease)
                 <div class="card mt-2">
                     <div class="card-header ch-card-header">Current Collectable</div>
                     <div class="card-body ch-card-body">
@@ -55,6 +58,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
             <div class="col-md-9">
                 <div class="card">
