@@ -32,7 +32,7 @@
 
                         <div class="detail-group" v-if="rare.release || rare.collectable_release">
                             <span class="detail-title" v-if="rare.release || rare.collectable_release">Release Price:</span>
-                            <span class="detail-info">{{ (rare.release) ? rare.release_price.credits : rare.collectable_release.credits }} Credits &amp; {{ (rare.release) ? rare.release.pixels : rare.collectable_release.pixels }} Pixels</span>
+                            <span class="detail-info">{{ rare.release_price.credits }} Credits &amp; {{ rare.release_price.pixels }} Pixels</span>
                         </div>
                     </div>
                 </div>
