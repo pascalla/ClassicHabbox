@@ -30,7 +30,7 @@
 
                 <div class="col-12">
                     <div class="navigation-container mt-5">
-                        <a href="#">Home</a>
+                        <a href="/">Home</a>
                     </div>
                 </div>
             </div>
