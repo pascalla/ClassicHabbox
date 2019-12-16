@@ -66768,7 +66768,7 @@ var render = function() {
                 _vm._v(
                   "\n                (" +
                     _vm._s(rare.current_price.credits) +
-                    " C / " +
+                    " Credits / " +
                     _vm._s(rare.current_price.credits / 50) +
                     " Goldbars)\n            "
                 )

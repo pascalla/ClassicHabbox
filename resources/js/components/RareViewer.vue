@@ -27,7 +27,7 @@
                 </div>
 
                 <b-popover :target="rare.name" triggers="hover" placement="top">
-                    ({{ rare.current_price.credits }} C / {{ rare.current_price.credits/50 }} Goldbars)
+                    ({{ rare.current_price.credits }} Credits / {{ rare.current_price.credits/50 }} Goldbars)
                 </b-popover>
             </div>
         </div>
