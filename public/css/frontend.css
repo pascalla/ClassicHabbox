@@ -20,7 +20,8 @@ body {
 }
 
 .logo{
-    padding-left:20px;
+    margin: 0 auto;
+    display: block;
 }
 
 .navigation-container{
