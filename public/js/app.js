@@ -78978,7 +78978,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["default"]); // Telling Vue to use this in whole application
 
-Vue.component('rare-viewer', __webpack_require__(/*! ./components/RareViewer */ "./resources/js/components/RareViewer.vue"));
+Vue.component('rare-viewer', __webpack_require__(/*! ./components/RareViewer */ "./resources/js/components/RareViewer.vue")["default"]);
 Vue.component('example', __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue"));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -79193,8 +79193,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/elijah/Documents/Club Habbo/site/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/elijah/Documents/Club Habbo/site/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! Y:\Files\Documents\Github\Alice\ClassicHabbox\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Y:\Files\Documents\Github\Alice\ClassicHabbox\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
