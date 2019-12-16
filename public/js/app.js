@@ -66756,7 +66756,7 @@ var render = function() {
                   "\n                (" +
                     _vm._s(rare.current_price.credits) +
                     " C / " +
-                    _vm._s(rare.current_price.credits) +
+                    _vm._s(rare.current_price.credits / 50) +
                     " Goldbars)\n            "
                 )
               ]
@@ -78965,7 +78965,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["default"]); // Telling Vue to use this in whole application
 
-Vue.component('rare-viewer', __webpack_require__(/*! ./components/RareViewer.vue */ "./resources/js/components/RareViewer.vue")["default"]);
+Vue.component('rare-viewer', __webpack_require__(/*! ./components/RareViewer */ "./resources/js/components/RareViewer.vue"));
 Vue.component('example', __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue"));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
