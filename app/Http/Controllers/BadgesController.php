@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Badge;
 use Illuminate\Http\Request;
 
@@ -45,6 +46,7 @@ class BadgesController extends Controller
         ]);
 
         $badge = Badge::create($request->all());
+        Session::flash('success', 'Successfully created badge.');
         return redirect()->route('badges.index');
     }
 
@@ -65,9 +67,10 @@ class BadgesController extends Controller
      * @param  \App\Badge  $badge
      * @return \Illuminate\Http\Response
      */
-    public function edit(Badge $badge)
+    public function edit($id)
     {
-        //
+        $badge = Badge::find($id);
+        return view('badges.edit')->with('badge', $badge);
     }
 
     /**
@@ -77,9 +80,26 @@ class BadgesController extends Controller
      * @param  \App\Badge  $badge
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Badge $badge)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'code' => 'required',
+            'name' => 'required',
+            'desc' => 'required',
+            'obtained_by' => 'required',
+            'image' => 'required'
+        ]);
+
+        $badge = Badge::find($id);
+        $badge->code = $request->get('code');
+        $badge->name = $request->get('name');
+        $badge->desc = $request->get('code');
+        $badge->obtained_by = $request->get('obtained_by');
+        $badge->image = $request->get('image');
+
+        $badge->save();
+        Session::flash('success', 'Successfully updated badge.');
+        return redirect()->route('badges.index');
     }
 
     /**

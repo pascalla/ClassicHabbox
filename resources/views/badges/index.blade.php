@@ -28,7 +28,7 @@
                     <td>{{ $badge->name }}</td>
                     <td>{{ $badge->desc }}</td>
                     <td>{{ $badge->obtained_by }}</td>
-                    <td><button class="btn btn-primary">Edit</button></td>
+                    <td><a href="/staff/badges/{{ $badge->id }}/edit" class="btn btn-primary">Edit</a></td>
                 </tr>
             @endforeach
         </table>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\CollectableRelease;
 use Auth;
+use Session;
 use App\Rare;
 use App\RareRelease;
 use App\Price;
@@ -105,6 +106,7 @@ class RaresController extends Controller
             $collectableRelease->save();
         }
 
+        Session::flash('success', 'Successfully created rare.');
         return redirect()->route('rares.show', $rare->id);
     }
 
@@ -142,6 +144,16 @@ class RaresController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'motto' => 'required',
+            'credits' => 'required|numeric',
+            'pixels' => 'required|numeric',
+            'image' => 'required',
+            'category' => 'required'
+        ]);
+
+
         $rare = Rare::find($id);
 
         $rare->name = $request->get('name');
@@ -151,6 +163,7 @@ class RaresController extends Controller
         $rare->category_id = $request->get('category');
         $rare->save();
 
+        Session::flash('success', 'Successfully updated rare.');
         return redirect()->route('rares.show', $rare->id);
     }
 
