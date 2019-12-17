@@ -1,0 +1,17 @@
+name: Dev CI
+
+on:
+  push:
+    branches: 
+      - dev
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Install dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      - name: PHP Migrate
+        run: php artisan migrate
+      - name: Compile Assets
+        run: npm run dev
