@@ -16,6 +16,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 // API (services)
 Route::get('/api/rares', 'RaresService@index');
+Route::get('/api/rares/category/{category}', 'RaresService@getByCategory');
+Route::get('/api/badges', 'BadgesService@index');
 
 // Panel
 Auth::routes(['register' => false]);
