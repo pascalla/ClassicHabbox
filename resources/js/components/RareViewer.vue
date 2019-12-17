@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="rare-body ml-auto p-5">
+            <div class="rare-body ml-auto p-5 rare-main-image">
                 <img :src="rare.image" :alt="rare.name"/>
             </div>
         </div>
@@ -73,6 +73,10 @@
 
     .detail-info{
         display:block;
+    }
+
+    .rare-main-image{
+        min-width:300px;
     }
 </style>
 
