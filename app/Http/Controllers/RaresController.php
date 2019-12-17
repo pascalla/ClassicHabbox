@@ -30,7 +30,7 @@ class RaresController extends Controller
      */
     public function index()
     {
-        $rares = Rare::all();
+        $rares = Rare::ordered()->all();
         return view('rares.index')->with('rares', $rares);
     }
 
