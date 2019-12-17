@@ -33,7 +33,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('rares.index') }}">Rares</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('badges.index') }}">Badges</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

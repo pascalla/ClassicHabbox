@@ -24,3 +24,4 @@ Route::get('/staff', 'RaresController@index');
 Route::resource('staff/rares', 'RaresController');
 Route::resource('staff/prices', 'PricesController');
 Route::resource('staff/categories', 'CategoriesController');
+Route::resource('staff/badges', 'BadgesController');
