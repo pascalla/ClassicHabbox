@@ -1,4 +1,4 @@
 # ClubHabbo
  ClubHabbo CMS
 
-The very best.
+The very best. legit.
