@@ -1949,6 +1949,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -35175,7 +35179,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.detail-group{\n    margin-bottom:15px;\n}\n.detail-title{\n    font-weight:700;\n    display:block;\n}\n.detail-info{\n    display:block;\n}\n", ""]);
+exports.push([module.i, "\n.detail-group{\n    margin-bottom:15px;\n}\n.detail-title{\n    font-weight:700;\n    display:block;\n}\n.detail-info{\n    display:block;\n}\n.rare-main-image{\n    min-width:300px;\n}\n", ""]);
 
 // exports
 
@@ -67444,17 +67448,9 @@ var render = function() {
                         _vm._v(" "),
                         _c("span", { staticClass: "detail-info" }, [
                           _vm._v(
-                            _vm._s(
-                              _vm.rare.release
-                                ? _vm.rare.release_price.credits
-                                : _vm.rare.collectable_release.credits
-                            ) +
+                            _vm._s(_vm.rare.release_price.credits) +
                               " Credits & " +
-                              _vm._s(
-                                _vm.rare.release
-                                  ? _vm.rare.release.pixels
-                                  : _vm.rare.collectable_release.pixels
-                              ) +
+                              _vm._s(_vm.rare.release_price.pixels) +
                               " Pixels"
                           )
                         ])
@@ -67464,9 +67460,15 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "rare-body ml-auto p-5" }, [
-              _c("img", { attrs: { src: _vm.rare.image, alt: _vm.rare.name } })
-            ])
+            _c(
+              "div",
+              { staticClass: "rare-body ml-auto p-5 rare-main-image" },
+              [
+                _c("img", {
+                  attrs: { src: _vm.rare.image, alt: _vm.rare.name }
+                })
+              ]
+            )
           ]
         )
       : _vm._e(),
@@ -79955,8 +79957,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! Y:\Files\Documents\Github\Alice\ClassicHabbox\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! Y:\Files\Documents\Github\Alice\ClassicHabbox\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/joshua.blackman/h/classichabbox/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/joshua.blackman/h/classichabbox/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
