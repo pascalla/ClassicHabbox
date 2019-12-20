@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'git checkout-index -a -f --prefix=/var/www/qa.clubhabbo.com/'
+                sh 'composer install --no-interaction -d=/var/www/qa.clubhabbo.com'
                 sh 'php /var/www/qa.clubhabbo.com/artisan migrate'
                 sh 'npm --prefix /var/www/qa.clubhabbo.com/ install /var/www/qa.clubhabbo.com/'
                 sh 'npm --prefix /var/www/qa.clubhabbo.com/ run development'
