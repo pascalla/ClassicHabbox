@@ -41,10 +41,11 @@
                         </div>
                     </div>
 
-                    <div class="rare-body ml-auto p-5 rare-main-image">
+                    <div class="rare-body rare-main-image ml-auto p-5">
                         <img :src="rare.image" :alt="rare.name"/>
                     </div>
                 </div>
+
 
                 <div class="d-flex justify-content-start flex-wrap rare-body">
                     <div v-for="rare in rares">
@@ -76,8 +77,16 @@
         display:block;
     }
 
-    .detail-info{
-        display:block;
+    .detail-info {
+        display: block;
+    }
+
+    .rare-main-image {
+        min-width:150px;
+    }
+
+    .rare-main-image img {
+        margin:0px auto;
     }
 
     .rare-main-image{

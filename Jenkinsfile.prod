@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'git checkout-index -a -f --prefix=/var/www/clubhabbo.com/'
+                sh 'chmod 777 /var/www/clubhabbo.com/storage'
+                sh 'composer install --no-interaction -d /var/www/clubhabbo.com'
+                sh 'php /var/www/clubhabbo.com/artisan migrate --force'
+                sh 'npm --prefix /var/www/clubhabbo.com/ install /var/www/clubhabbo.com/'
+                sh 'npm --prefix /var/www/clubhabbo.com/ run production'
+            }
+        }
+    }
+}
