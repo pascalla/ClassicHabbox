@@ -36,6 +36,11 @@ const router = new VueRouter({
             name: 'badges',
             component: BadgeViewer,
         },
+        {
+            path: '/badge/:slug',
+            name: 'badge',
+            component: BadgeViewer
+        },
         // 404
         {
             path: "*",

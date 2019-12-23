@@ -33,11 +33,11 @@
                 <div class="d-flex justify-content-start flex-wrap badge-body">
                     <div v-for="badge in badges">
                         <div :id="badge.name">
-                            <a href="#" v-on:click="setBadge(badge)">
+                            <span href="#" v-on:click="setBadge(badge)">
                                 <div class="badge-icon">
                                     <img :src="badge.image" :alt="badge.name"/>
                                 </div>
-                            </a>
+                            </span>
                         </div>
 
                         <b-popover :target="badge.name" triggers="hover" placement="top">
@@ -117,9 +117,23 @@
                     .then((resp) => {
                         this.badges = resp.data;
                     })
+                    .finally( () => {
+                        if(this.$route.params.slug) {
+                            this.badge = this.getBadgeBySlug(this.$route.params.slug);
+                        }
+                    })
+            },
+            getBadgeBySlug: function(slug){
+                return this.badges.find(badge => badge.slug === slug);
             },
             setBadge: function(badge){
+                this.$router.push({ name: 'badge', params: { slug: badge.slug } });
                 this.badge = badge;
+            }
+        },
+        watch: {
+            $route(to, from) {
+                this.badge = this.getBadgeBySlug(to.params.slug);
             }
         }
     }
