@@ -103,7 +103,7 @@ class BadgesController extends Controller
         $badge = Badge::find($id);
         $badge->code = $request->get('code');
         $badge->name = $request->get('name');
-        $badge->desc = $request->get('code');
+        $badge->desc = $request->get('desc');
         $badge->obtained_by = $request->get('obtained_by');
         $badge->image = $request->get('image');
 
