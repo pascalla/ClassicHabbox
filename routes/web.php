@@ -11,9 +11,6 @@
 |
 */
 
-// Pages
-Route::get('/', 'HomeController@index')->name('home');
-
 // API (services)
 Route::get('/api/rares', 'RaresService@index');
 Route::get('/api/rares/category/{category}', 'RaresService@getByCategory');
@@ -27,3 +24,6 @@ Route::resource('staff/rares', 'RaresController');
 Route::resource('staff/prices', 'PricesController');
 Route::resource('staff/categories', 'CategoriesController');
 Route::resource('staff/badges', 'BadgesController');
+
+// Pages
+Route::get('/{any}', 'HomeController@index')->where('any', '.*');

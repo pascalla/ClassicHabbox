@@ -30,7 +30,8 @@
 
                 <div class="col-12">
                     <div class="navigation-container mt-5">
-                        <a href="/">Home</a>
+                        <router-link :to="{ name: 'home' }">Home</router-link>
+                        <router-link :to="{ name: 'badges' }">Badges</router-link>
                     </div>
                 </div>
             </div>
