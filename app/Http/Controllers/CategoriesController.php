@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Session;
 
 class CategoriesController extends Controller
 {
@@ -55,6 +56,7 @@ class CategoriesController extends Controller
         $category->description = $request->get('description');
         $category->save();
 
+        Session::flash('success', 'Successfully created category.');
         return redirect()->route('rares.index');
     }
 

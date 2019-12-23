@@ -40,6 +40,11 @@ class Rare extends Model
         return $this->hasOne('App\CollectableRelease', 'rare_id');
     }
 
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('name', 'asc')->get();
+    }
+
     /**
      * Get the options for generating the slug.
      */
