@@ -61,12 +61,7 @@
                 @endif
             </div>
             <div class="col-xl-9">
-                <div class="card">
-                    <div class="card-header ch-card-header">All Rares</div>
-                    <div class="card-body">
-                        <rare-viewer></rare-viewer>
-                    </div>
-                </div>
+                <router-view></router-view>
             </div>
         </div>
     </div>

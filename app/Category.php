@@ -13,7 +13,7 @@ class Category extends Model
     protected $table = 'categories';
 
     public function rares() {
-        return $this->hasMany('App\Rares', 'category_id');
+        return $this->hasMany('App\Rare', 'category_id')->with('currentPrice','priceHistory','releasePrice','release','collectableRelease');
     }
 
     /**

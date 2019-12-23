@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Price;
 use App\Rare;
 use Auth;
+use Session;
 use Illuminate\Http\Request;
 
 class PricesController extends Controller
@@ -71,6 +72,7 @@ class PricesController extends Controller
         $price->release = 0;
         $price->save();
 
+        Session::flash('success', 'Successfully updated price.');
         return redirect()->route('prices.show', $rare->id);
     }
 
@@ -104,9 +106,9 @@ class PricesController extends Controller
      * @param  \App\Price  $price
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Price $price)
+    public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
