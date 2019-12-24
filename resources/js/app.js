@@ -24,12 +24,20 @@ const router = new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: RareViewer
+            component: RareViewer,
+            props: { title: 'All Rares' }
         },
         {
             path: '/rare/:slug',
             name: 'rare',
-            component: RareViewer
+            component: RareViewer,
+            props: { title: 'All Rares' }
+        },
+        {
+            path: '/rares/released',
+            name: 'released',
+            component: RareViewer,
+            props: { released: true, title: 'Released Rares' }
         },
         {
             path: '/badges',

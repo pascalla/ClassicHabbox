@@ -18,4 +18,14 @@ class RaresService extends Controller
         $rares = $category->rares->ordered()->all();
         return response()->json($rares);
     }
+
+    public function getByReleased(Request $request) {
+        $rares = Rare::with('currentPrice','category','priceHistory','releasePrice','release','collectableRelease')->get();
+        $rares = $rares->filter(function ($rare, $key) {
+            return $rare->release != null;
+        });
+
+        $rares = $rares->sortBy('release.created_at');
+        return response()->json($rares->values()->all());
+    }
 }

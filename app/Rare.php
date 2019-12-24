@@ -32,7 +32,7 @@ class Rare extends Model
         return $this->hasMany('App\Price', 'rare_id')->latest();
     }
 
-    public function release(){
+    public function release() {
         return $this->hasOne('App\RareRelease', 'rare_id');
     }
 

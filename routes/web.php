@@ -14,6 +14,7 @@
 // API (services)
 Route::get('/api/rares', 'RaresService@index');
 Route::get('/api/rares/category/{category}', 'RaresService@getByCategory');
+Route::get('/api/rares/released', 'RaresService@getByReleased');
 Route::get('/api/badges', 'BadgesService@index');
 
 // Panel

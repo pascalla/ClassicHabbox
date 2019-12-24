@@ -27,7 +27,7 @@
 
                 @if ($release)
                 <div class="card mt-2">
-                    <div class="card-header ch-card-header">Current Rare</div>
+                    <div class="card-header ch-card-header">Current Rare <div class="float-right"><router-link alt="See Release Rares" class="white-link" :to="{ name: 'released' }">»</router-link></div></div>
                     <div class="card-body ch-card-body">
                         <div class="d-flex mb-2">
                             <div class="rare-image">

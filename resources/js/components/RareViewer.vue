@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="card">
-            <div class="card-header ch-card-header">All Rares</div>
+            <div class="card-header ch-card-header">{{ title }}</div>
             <div class="card-body">
                 <div class="d-flex justify-content-start flex-wrap mb-3" v-if="rare">
                     <div class="rare-body flex-grow-1 mr-2">
@@ -48,7 +48,7 @@
 
 
                 <div class="d-flex justify-content-start flex-wrap rare-body">
-                    <div v-for="rare in rares">
+                    <div v-for="rare in raresList">
                         <div :id="rare.name">
                             <span v-on:click="setRare(rare)">
                                 <div class="rare-icon">
@@ -96,10 +96,12 @@
 
 <script>
     export default {
+        props: ['released', 'title'],
         data: function () {
             return {
                 rare: null,
-                rares: []
+                rares: [],
+                raresList: []
             }
         },
         created: function() {
@@ -108,6 +110,24 @@
         methods: {
             getAllRares: function(){
                 axios.get('/api/rares')
+                    .then((resp) => {
+                        this.rares = resp.data;
+
+                        if(this.released) {
+                            this.raresList = this.releasedRares;
+                        } else {
+                            this.raresList = this.rares;
+                        }
+
+                    })
+                    .finally( () => {
+                        if(this.$route.params.slug) {
+                            this.rare = this.getRareBySlug(this.$route.params.slug);
+                        }
+                    })
+            },
+            getReleasedRares: function(){
+                axios.get('/api/rares/released')
                     .then((resp) => {
                         this.rares = resp.data;
                     })
@@ -125,8 +145,24 @@
                 this.rare = rare;
             }
         },
+        computed: {
+            // a computed getter
+            releasedRares: function () {
+                // `this` points to the vm instance
+                let filtered = this.rares.filter(rare => rare.release != null);
+                return filtered.sort((a, b) => (a.release.created_at > b.release.created_at) ? 1 : -1)
+            }
+        },
         watch: {
             $route(to, from) {
+                if(to.name === "home"){
+                    this.raresList = this.rares;
+                }
+
+                if(to.name === "released"){
+                    this.raresList = this.releasedRares;
+                }
+
                 this.rare = this.getRareBySlug(to.params.slug);
             }
         }
