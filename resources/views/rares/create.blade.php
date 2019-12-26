@@ -38,6 +38,15 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="rare_type">Rare Type</label>
+                                <select class="form-control" id="rare_type" name="rare_type">
+                                    @foreach($rare_types as $rare_type)
+                                        <option value="{{ $rare_type->id }}">{{ $rare_type->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="Name">Release Credits</label>
                                 <input type="text" class="form-control" id="credits" name="credits" value="{{ old('credits') }}">
                             </div>

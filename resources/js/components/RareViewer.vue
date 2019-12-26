@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="card">
-            <div class="card-header ch-card-header">{{ title }}</div>
+            <div class="card-header ch-card-header">Rare Viewer</div>
             <div class="card-body">
                 <div class="d-flex justify-content-start flex-wrap mb-3" v-if="rare">
                     <div class="rare-body flex-grow-1 mr-2">
@@ -18,8 +18,13 @@
                                 </div>
 
                                 <div class="detail-group">
-                                    <span class="detail-title">Category:</span>
-                                    <span class="detail-info">{{ rare.category.name }}</span>
+                                    <span class="detail-title">Release Category:</span>
+                                    <span class="detail-info"><router-link :to="{ name: 'category', params: { category_slug: rare.category.slug }}">{{ rare.category.name }}</router-link></span>
+                                </div>
+
+                                <div class="detail-group">
+                                    <span class="detail-title">Rare Type:</span>
+                                    <span class="detail-info"><router-link :to="{ name: 'rare_type', params: { rare_type_slug: rare.type.slug }}">{{ rare.type.name }}</router-link></span>
                                 </div>
                             </div>
                             <div class="ml-auto text-right">
@@ -96,7 +101,7 @@
 
 <script>
     export default {
-        props: ['released', 'title'],
+        props: ['released', 'category', 'rare_type'],
         data: function () {
             return {
                 rare: null,
@@ -115,6 +120,10 @@
 
                         if(this.released) {
                             this.raresList = this.releasedRares;
+                        } else if(this.category) {
+                            this.raresList = this.categoryRares(this.$route.params.category_slug);
+                        } else if(this.rare_type) {
+                            this.raresList = this.typeRares(this.$route.params.rare_type_slug);
                         } else {
                             this.raresList = this.rares;
                         }
@@ -141,17 +150,25 @@
                 return this.rares.find(rare => rare.slug === slug);
             },
             setRare: function(rare){
-                this.$router.push({ name: 'rare', params: { slug: rare.slug } });
-                this.rare = rare;
+                if(rare !== this.rare) {
+                    this.$router.push({ name: 'rare', params: { slug: rare.slug } });
+                    this.rare = rare;
+                }
+            },
+            categoryRares: function(slug) {
+                let filtered = this.rares.filter(rare => rare.category.slug === slug);
+                return filtered;
+            },
+            typeRares: function(slug) {
+                let filtered = this.rares.filter(rare => rare.type.slug === slug);
+                return filtered;
             }
         },
         computed: {
-            // a computed getter
             releasedRares: function () {
-                // `this` points to the vm instance
                 let filtered = this.rares.filter(rare => rare.release != null);
                 return filtered.sort((a, b) => (a.release.created_at > b.release.created_at) ? 1 : -1)
-            }
+            },
         },
         watch: {
             $route(to, from) {
@@ -161,6 +178,14 @@
 
                 if(to.name === "released"){
                     this.raresList = this.releasedRares;
+                }
+
+                if(to.name === "category"){
+                    this.raresList = this.categoryRares(to.params.category_slug);
+                }
+
+                if(to.name === "rare_type"){
+                    this.raresList = this.typeRares(to.params.rare_type_slug);
                 }
 
                 this.rare = this.getRareBySlug(to.params.slug);

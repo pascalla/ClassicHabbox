@@ -7,6 +7,7 @@ use App\CollectableRelease;
 use Auth;
 use Session;
 use App\Rare;
+use App\RareType;
 use App\RareRelease;
 use App\Price;
 use Illuminate\Http\Request;
@@ -42,7 +43,8 @@ class RaresController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('rares.create')->with('categories', $categories);
+        $rare_types = RareType::all();
+        return view('rares.create')->with('categories', $categories)->with('rare_types',  $rare_types);
     }
 
     /**
@@ -59,7 +61,8 @@ class RaresController extends Controller
             'credits' => 'required|numeric',
             'pixels' => 'required|numeric',
             'image' => 'required',
-            'category' => 'required'
+            'category' => 'required',
+            'rare_type' => 'required'
         ]);
 
         $rare = new Rare;
@@ -68,6 +71,7 @@ class RaresController extends Controller
         $rare->image = $request->get('image');
         $rare->small_image = $request->get('small_image');
         $rare->category_id = $request->get('category');
+        $rare->rare_type_id = $request->get('rare_type');
         $rare->save();
 
         $price = new Price;
@@ -132,7 +136,8 @@ class RaresController extends Controller
     {
         $rare = Rare::find($id);
         $categories = Category::all();
-        return view('rares.edit')->with('rare', $rare)->with('categories', $categories);
+        $rare_types = RareType::all();
+        return view('rares.edit')->with('rare', $rare)->with('categories', $categories)->with('rare_types',  $rare_types);
     }
 
     /**
@@ -150,7 +155,8 @@ class RaresController extends Controller
             'credits' => 'required|numeric',
             'pixels' => 'required|numeric',
             'image' => 'required',
-            'category' => 'required'
+            'category' => 'required',
+            'rare_type' => 'required'
         ]);
 
 
@@ -161,7 +167,27 @@ class RaresController extends Controller
         $rare->image = $request->get('image');
         $rare->small_image = $request->get('small_image');
         $rare->category_id = $request->get('category');
+        $rare->rare_type_id = $request->get('rare_type');
         $rare->save();
+
+        $price = Price::where('rare_id' ,$rare->id)->first();
+        $price->credits = $request->get('credits');
+        $price->pixels = $request->get('pixels');
+        $price->save();
+
+        if($request->has('rare_release')) {
+
+            $rareReleases = RareRelease::all();
+            foreach($rareReleases as $release){
+                $release->active = 0;
+                $release->save();
+            }
+
+            $rareRelease = new RareRelease;
+            $rareRelease->rare_id = $rare->id;
+            $rareRelease->active = true;
+            $rareRelease->save();
+        }
 
         Session::flash('success', 'Successfully updated rare.');
         return redirect()->route('rares.show', $rare->id);

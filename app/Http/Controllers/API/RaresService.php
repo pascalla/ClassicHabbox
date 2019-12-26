@@ -9,7 +9,7 @@ use App\Category;
 class RaresService extends Controller
 {
     public function index() {
-        $rares = Rare::with('currentPrice','category','priceHistory','releasePrice','release','collectableRelease')->ordered()->all();
+        $rares = Rare::with('currentPrice','category','priceHistory','releasePrice','release','collectableRelease', 'type')->ordered()->all();
         return response()->json($rares);
     }
 

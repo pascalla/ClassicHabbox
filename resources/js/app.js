@@ -40,6 +40,18 @@ const router = new VueRouter({
             props: { released: true, title: 'Released Rares' }
         },
         {
+            path: '/rares/category/:category_slug',
+            name: 'category',
+            component: RareViewer,
+            props: { category: true, title: 'Category Rares' }
+        },
+        {
+            path: '/rares/type/:rare_type_slug',
+            name: 'rare_type',
+            component: RareViewer,
+            props: { rare_type: true, title: 'Type Rares' }
+        },
+        {
             path: '/badges',
             name: 'badges',
             component: BadgeViewer,
