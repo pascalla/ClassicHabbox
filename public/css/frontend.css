@@ -95,3 +95,15 @@ body {
     font-size:12px;
     display:block;
 }
+
+.white-link {
+    color:white;
+}
+
+.white-link a{
+    color:white;
+}
+
+.white-link:hover {
+    color:white;
+}
