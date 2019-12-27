@@ -16,6 +16,10 @@ class Rare extends Model
         return $this->belongsTo('App\Category', 'category_id');
     }
 
+    public function type(){
+        return $this->belongsTo('App\RareType', 'rare_type_id');
+    }
+
     public function price(){
         return $this->hasOne('App\Price', 'rare_id')->latest()->first();
     }
@@ -32,7 +36,7 @@ class Rare extends Model
         return $this->hasMany('App\Price', 'rare_id')->latest();
     }
 
-    public function release(){
+    public function release() {
         return $this->hasOne('App\RareRelease', 'rare_id');
     }
 
@@ -42,7 +46,7 @@ class Rare extends Model
 
     public function scopeOrdered($query)
     {
-        return $query->orderBy('name', 'asc')->get();
+        return $query->orderBy('rare_type_id', 'asc')->get();
     }
 
     /**

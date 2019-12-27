@@ -24,12 +24,32 @@ const router = new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: RareViewer
+            component: RareViewer,
+            props: { title: 'All Rares' }
         },
         {
             path: '/rare/:slug',
             name: 'rare',
-            component: RareViewer
+            component: RareViewer,
+            props: { title: 'All Rares' }
+        },
+        {
+            path: '/rares/released',
+            name: 'released',
+            component: RareViewer,
+            props: { released: true, title: 'Released Rares' }
+        },
+        {
+            path: '/rares/category/:category_slug',
+            name: 'category',
+            component: RareViewer,
+            props: { category: true, title: 'Category Rares' }
+        },
+        {
+            path: '/rares/type/:rare_type_slug',
+            name: 'rare_type',
+            component: RareViewer,
+            props: { rare_type: true, title: 'Type Rares' }
         },
         {
             path: '/badges',

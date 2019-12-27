@@ -9,7 +9,7 @@ use App\Category;
 class RaresService extends Controller
 {
     public function index() {
-        $rares = Rare::with('currentPrice','category','priceHistory','releasePrice','release','collectableRelease')->ordered()->all();
+        $rares = Rare::with('currentPrice','category','priceHistory','releasePrice','release','collectableRelease', 'type')->ordered()->all();
         return response()->json($rares);
     }
 
@@ -17,5 +17,15 @@ class RaresService extends Controller
         $category = Category::findOrFail($category_id);
         $rares = $category->rares->ordered()->all();
         return response()->json($rares);
+    }
+
+    public function getByReleased(Request $request) {
+        $rares = Rare::with('currentPrice','category','priceHistory','releasePrice','release','collectableRelease')->get();
+        $rares = $rares->filter(function ($rare, $key) {
+            return $rare->release != null;
+        });
+
+        $rares = $rares->sortBy('release.created_at');
+        return response()->json($rares->values()->all());
     }
 }
