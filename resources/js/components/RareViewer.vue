@@ -35,7 +35,7 @@
 
                                 <div class="detail-group" v-if="rare.release || rare.collectable_release">
                                     <span class="detail-title">Initial Release:</span>
-                                    <span class="detail-info">{{ (rare.release) ? rare.release.created_at : rare.collectable_release.created_at }}</span>
+                                    <span class="detail-info">{{ (rare.release) ? formatDate(rare.release.created_at) : formatDate(rare.collectable_release.created_at) }}</span>
                                 </div>
 
                                 <div class="detail-group" v-if="rare.release || rare.collectable_release">
@@ -100,6 +100,8 @@
 </style>
 
 <script>
+    import moment from 'moment';
+
     export default {
         props: ['released', 'category', 'rare_type'],
         data: function () {
@@ -162,6 +164,9 @@
             typeRares: function(slug) {
                 let filtered = this.rares.filter(rare => rare.type.slug === slug);
                 return filtered;
+            },
+            formatDate: function(time) {
+                return moment(time).format('DD-MM-YYYY');
             }
         },
         computed: {
